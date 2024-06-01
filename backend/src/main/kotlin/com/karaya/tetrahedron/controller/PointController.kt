@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
+import org.springframework.web.util.UriComponentsBuilder
 import java.net.URI
 
 @RestController
@@ -19,11 +20,11 @@ class PointController @Autowired constructor(
     private val pointSetService: PointSetService
 ) {
     @PostMapping("/points")
-    fun uploadPoints(@RequestBody points: List<Point>): ResponseEntity<Void> {
+    fun uploadPoints(@RequestBody points: List<Point>, uriBuilder: UriComponentsBuilder): ResponseEntity<Void> {
         val savedPointSet = pointSetService.savePointSet(points)
         val location: URI =
-            ServletUriComponentsBuilder.fromCurrentRequestUri()
-                .path("/{id}")
+            uriBuilder
+                .path("/api/points/{id}")
                 .buildAndExpand(savedPointSet.id)
                 .toUri()
         return ResponseEntity.created(location).build()
