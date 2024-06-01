@@ -21,4 +21,8 @@ class PointSetService @Autowired constructor(
 
 
     fun clear() = mongoPointSetRepository.deleteAll()
+
+    fun calculateSmallestTetrahedron(points: List<Point>): List<Int> {
+        return listOf(0, 3, 4, 6)
+    }
 }

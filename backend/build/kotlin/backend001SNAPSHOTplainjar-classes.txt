@@ -1,1 +1,0 @@
-/mnt/c/Users/virtu/Development/breadcrumb/tetrahedron-calculator/backend/build/classes/kotlin/main/com/karaya/tetrahedron/TetrahedronCalculationAppApplication.class:/mnt/c/Users/virtu/Development/breadcrumb/tetrahedron-calculator/backend/build/classes/kotlin/main/com/karaya/tetrahedron/TetrahedronCalculationApplicationKt.class
