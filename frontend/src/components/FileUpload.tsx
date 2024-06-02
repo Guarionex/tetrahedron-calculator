@@ -15,7 +15,6 @@ export const FileUpload: React.FC = () => {
     const [tetrahedron, setTetrahedron] = useState<number[]>([])
     const [error, setError] = useState<string | null>(null)
     const [file, setFile] = useState<File | null>(null)
-    const [points, setPoints] = useState<Point[]>([])
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files[0]) {
@@ -39,12 +38,11 @@ export const FileUpload: React.FC = () => {
                         .map((num) => parseFloat(num))
                     return { x, y, z, n }
                 })
-            setPoints(pointsArray)
 
             try {
                 setLoading(true)
                 setError(null)
-                const response = await axios.post('http://localhost:8080/api/points', points)
+                const response = await axios.post('http://localhost:8080/api/points', pointsArray)
                 const location = response.headers['location']
                 const tetrahedronResponse = await axios.get(`${location}/tetrahedron`)
                 setTetrahedron(tetrahedronResponse.data)
