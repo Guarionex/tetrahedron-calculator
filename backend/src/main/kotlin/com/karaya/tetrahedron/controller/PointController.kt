@@ -39,7 +39,7 @@ class PointController @Autowired constructor(
     }
 
     @RequestMapping(method = [RequestMethod.OPTIONS])
-    @CrossOrigin(origins = ["http://localhost:3000", "http://ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com"])
+    @CrossOrigin(origins = ["http://localhost:3000", "http://a0b63c9cbd460478094851cd5359090b-1755844260.us-west-2.elb.amazonaws.com"])
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun handleOptions() {
         // This method is intentionally left empty

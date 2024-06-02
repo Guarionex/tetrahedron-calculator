@@ -18,7 +18,6 @@ class CorsConfig {
                 registry.addMapping("/**")
                     .allowedOrigins(
                         "http://localhost:3000",
-                        "http://ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com",
                         "http://a0b63c9cbd460478094851cd5359090b-1755844260.us-west-2.elb.amazonaws.com"
                     )
                     .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
@@ -36,7 +35,6 @@ class CorsConfig {
         config.allowCredentials = true
         config.allowedOrigins = listOf(
             "http://localhost:3000",
-            "http://ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com",
             "http://a0b63c9cbd460478094851cd5359090b-1755844260.us-west-2.elb.amazonaws.com"
         )
         config.allowedHeaders = listOf("*")
