@@ -5,21 +5,22 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
-    - host: http://ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com.nip.io
+    - host: ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com.nip.io
       http:
         paths:
           - path: /api
             pathType: Prefix
             backend:
               service:
-                name: backend-service
+                name: tetrahedron-backend
                 port:
                   number: 8080
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: frontend-service
+                name: tetrahedron-frontend
                 port:
                   number: 80
