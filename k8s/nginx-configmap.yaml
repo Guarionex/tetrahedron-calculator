@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-custom-config
+  namespace: ingress-nginx
+data:
+  enable-cors: "true"
+  cors-allow-origin: "http://localhost:3000,http://ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com"
+  cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
+  cors-allow-credentials: "true"
+  cors-allow-headers: "*"
+  enable-snippets: "true"
