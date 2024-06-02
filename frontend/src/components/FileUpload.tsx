@@ -44,7 +44,7 @@ export const FileUpload: React.FC = () => {
             try {
                 setLoading(true)
                 setError(null)
-                const response = await axios.post('http://localhost:8080/api/points', pointsArray)
+                const response = await axios.post('http://localhost:8080/api/points', points)
                 const location = response.headers['location']
                 const tetrahedronResponse = await axios.get(`${location}/tetrahedron`)
                 setTetrahedron(tetrahedronResponse.data)
