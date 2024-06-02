@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tetrahedron-backend
-          image: your-dockerhub-username/tetrahedron-backend:latest
+          image: chespirana/tetrahedron-backend:latest
           ports:
             - containerPort: 8080
           env:
