@@ -16,7 +16,11 @@ class CorsConfig {
         return object : WebMvcConfigurer {
             override fun addCorsMappings(registry: CorsRegistry) {
                 registry.addMapping("/**")
-                    .allowedOrigins("http://localhost:3000", "http://ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com")
+                    .allowedOrigins(
+                        "http://localhost:3000",
+                        "http://ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com",
+                        "http://a0b63c9cbd460478094851cd5359090b-1755844260.us-west-2.elb.amazonaws.com"
+                    )
                     .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                     .allowedHeaders("*")
                     .exposedHeaders("Location")
@@ -30,7 +34,11 @@ class CorsConfig {
         val source = UrlBasedCorsConfigurationSource()
         val config = CorsConfiguration()
         config.allowCredentials = true
-        config.allowedOrigins = listOf("http://localhost:3000", "http://ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com")
+        config.allowedOrigins = listOf(
+            "http://localhost:3000",
+            "http://ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com",
+            "http://a0b63c9cbd460478094851cd5359090b-1755844260.us-west-2.elb.amazonaws.com"
+        )
         config.allowedHeaders = listOf("*")
         config.exposedHeaders = listOf("Location")
         config.allowedMethods = listOf("GET", "POST", "PUT", "DELETE", "OPTIONS")
