@@ -4,6 +4,9 @@ metadata:
   name: tetrahedron-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:3000,http://ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
 spec:
   ingressClassName: nginx
   rules:
