@@ -36,8 +36,8 @@ jobs:
 
       - name: Build and Push Backend Docker image
         run: |
-          docker build -t your-dockerhub-username/tetrahedron-backend:latest ./backend
-          docker push your-dockerhub-username/tetrahedron-backend:latest
+          docker build -t chespirana/tetrahedron-backend:latest ./backend
+          docker push chespirana/tetrahedron-backend:latest
 
       - name: Set up Node.js for Frontend
         uses: actions/setup-node@v2
@@ -50,8 +50,8 @@ jobs:
 
       - name: Build and Push Frontend Docker image
         run: |
-          docker build -t your-dockerhub-username/tetrahedron-frontend:latest ./frontend
-          docker push your-dockerhub-username/tetrahedron-frontend:latest
+          docker build -t chespirana/tetrahedron-frontend:latest ./frontend
+          docker push chespirana/tetrahedron-frontend:latest
 
   deploy:
     needs: build
