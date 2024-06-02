@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tetrahedron-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tetrahedron-backend
+  template:
+    metadata:
+      labels:
+        app: tetrahedron-backend
+    spec:
+      containers:
+        - name: tetrahedron-backend
+          image: your-dockerhub-username/tetrahedron-backend:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATA_MONGODB_URI
+              value: mongodb://root:example@mongodb:27017/tetrahedron?authSource=admin
