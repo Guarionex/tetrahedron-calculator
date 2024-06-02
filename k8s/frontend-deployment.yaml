@@ -4,6 +4,11 @@ metadata:
   name: tetrahedron-frontend
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
   selector:
     matchLabels:
       app: tetrahedron-frontend
@@ -11,6 +16,8 @@ spec:
     metadata:
       labels:
         app: tetrahedron-frontend
+      annotations:
+        redeploy: "$(date +%s)"
     spec:
       containers:
         - name: tetrahedron-frontend
