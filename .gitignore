@@ -40,3 +40,5 @@ sketch
 hs_err_pid*
 replay_pid*
 
+# But not the gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.jar

@@ -9,6 +9,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      mongodb:
+        image: mongo:5.0
+        ports:
+          - 27017:27017
+        options: >
+          --health-cmd="mongo --eval 'db.runCommand({ ping: 1 })'" 
+          --health-interval=10s 
+          --health-timeout=5s 
+          --health-retries=5
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -23,7 +34,7 @@ jobs:
         run: chmod +x ./backend/gradlew
 
       - name: Build Backend with Gradle
-        run: ./gradlew build
+        run: ./gradlew build -Dspring.profiles.active=test
         working-directory: ./backend
 
       - name: Build and Push Backend Docker image
