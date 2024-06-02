@@ -4,12 +4,7 @@ import com.karaya.tetrahedron.domain.Point
 import com.karaya.tetrahedron.service.PointSetService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 import org.springframework.web.util.UriComponentsBuilder
 import java.net.URI
@@ -40,5 +35,11 @@ class PointController @Autowired constructor(
         } else {
             ResponseEntity.notFound().build()
         }
+    }
+
+    @RequestMapping(method = [RequestMethod.OPTIONS])
+    @CrossOrigin(origins = ["http://localhost:3000", "http://ae548371bb1254868840fa2c69e0e26c-139420865.us-west-2.elb.amazonaws.com"])
+    fun handleOptions() {
+        // This method is intentionally left empty
     }
 }
